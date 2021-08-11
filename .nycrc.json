@@ -1,0 +1,41 @@
+{
+  "all": true,
+  "clean": true,
+  "include": [
+    "lib/**/*.js"
+  ],
+  "exclude": [
+    "test/**/*.spec.js"
+  ],
+  "extension": [
+    ".js"
+  ],
+  "reporter": [
+    "text"
+  ],
+  "source-map": true,
+  "exclude-after-remap": false,
+  "check-coverage": false,
+  "statements": 80,
+  "branches": 80,
+  "functions": 80,
+  "lines": 80,
+  "watermarks": {
+    "statements": [
+      80,
+      90
+    ],
+    "branches": [
+      80,
+      90
+    ],
+    "functions": [
+      80,
+      90
+    ],
+    "lines": [
+      80,
+      90
+    ]
+  }
+}

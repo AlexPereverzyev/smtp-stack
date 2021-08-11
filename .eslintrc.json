@@ -1,0 +1,35 @@
+{
+    "env": {
+      "es6": true,
+      "node": true,
+      "mocha": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "standard",
+      "prettier"
+    ],
+    "plugins": [
+      "chai-friendly"
+    ],
+    "rules": {
+      "comma-dangle": [
+        "error",
+        {
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "exports": "always-multiline",
+          "imports": "always-multiline",
+          "functions": "never"
+        }
+      ],
+      "max-len": [
+        "error",
+        {
+          "code": 100
+        }
+      ],
+      "no-unused-expressions": 0,
+      "chai-friendly/no-unused-expressions": 2
+    }
+  }
