@@ -61,8 +61,7 @@ describe('Authentication', function () {
             },
         });
 
-        server.start();
-        server.listen(test.PORT, test.HOST, done);
+        server.start(test.PORT, test.HOST, done);
     });
 
     afterEach(function (done) {

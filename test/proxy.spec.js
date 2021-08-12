@@ -42,8 +42,7 @@ describe('Proxy', function () {
                     callback();
                 },
             });
-            server.start();
-            server.listen(test.PORT, test.HOST, done);
+            server.start(test.PORT, test.HOST, done);
         });
 
         afterEach(function (done) {
@@ -102,8 +101,7 @@ describe('Proxy', function () {
                 key: cert.serviceKey,
                 cert: cert.certificate,
             });
-            server.start();
-            server.listen(test.PORT, test.HOST, done);
+            server.start(test.PORT, test.HOST, done);
         });
 
         afterEach(function (done) {

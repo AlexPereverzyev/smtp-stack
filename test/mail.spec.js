@@ -75,8 +75,7 @@ describe('Mail', function () {
             });
         };
 
-        server.start();
-        server.listen(test.PORT, test.HOST, function () {
+        server.start(test.PORT, test.HOST, function () {
             connection = new SMTPClient({
                 port: test.PORT,
                 host: test.HOST,

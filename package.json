@@ -2,6 +2,8 @@
     "name": "smtp-stack",
     "version": "0.1.0",
     "description": "Configurable SMTP stack with async middleware",
+    "author": "Alex Pereverzyev",
+    "license": "MIT",
     "main": "lib/index.js",
     "scripts": {
         "format": "prettier --write 'lib/**/*.js' 'test/**/*.js'",
@@ -12,8 +14,12 @@
         "start": "node lib/index.js",
         "stats": "sloc lib/ -f cli-table -k total,source,comment"
     },
-    "author": "Alex Pereverzyev",
-    "license": "MIT",
+    "husky": {
+        "hooks": {
+          "pre-commit": "npm run format && git update-index --again",
+          "pre-push": "npm test"
+        }
+      },
     "dependencies": {
         "punycode": "^2.1.1"
     },
