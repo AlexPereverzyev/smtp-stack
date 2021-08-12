@@ -1,59 +1,54 @@
 {
-    "name": "smtp-stack",
-    "version": "0.1.0",
-    "description": "Configurable SMTP stack with async middleware",
-    "author": "Alex Pereverzyev",
-    "license": "MIT",
-    "main": "lib/index.js",
-    "scripts": {
-        "format": "prettier --write 'lib/**/*.js' 'test/**/*.js'",
-        "lint": "eslint . --ext .js --fix",
-        "test": "npm run coverage",
-        "coverage": "nyc mocha",
-        "debug": "DEBUG=* node lib/index.js",
-        "start": "node lib/index.js",
-        "stats": "sloc lib/ -f cli-table -k total,source,comment"
-    },
-    "husky": {
-        "hooks": {
-          "pre-commit": "npm run format && git update-index --again",
-          "pre-push": "npm test"
-        }
-      },
-    "dependencies": {
-        "punycode": "^2.1.1"
-    },
-    "devDependencies": {
-        "chai": "4.3.4",
-        "chai-as-promised": "^7.1.1",
-        "eslint": "^7.31.0",
-        "eslint-config-prettier": "8.3.0",
-        "eslint-config-standard": "^16.0.3",
-        "eslint-plugin-chai-friendly": "^0.7.1",
-        "eslint-plugin-import": "^2.23.4",
-        "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-promise": "^5.1.0",
-        "eslint-plugin-standard": "^5.0.0",
-        "husky": "^7.0.1",
-        "mocha": "8.4.0",
-        "node-forge": "^0.10.0",
-        "nodemailer": "^6.6.3",
-        "nyc": "^15.1.0",
-        "prettier": "^2.3.2",
-        "sinon": "^11.1.2",
-        "sloc": "^0.2.1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/alexpereverzyev/smtp-stack"
-    },
-    "bugs": {
-        "url": "https://github.com/alexpereverzyev/smtp-stack/issues"
-    },
-    "keywords": [
-        "SMTP",
-        "middleware",
-        "proxy",
-        "TLS"
-    ]
+  "name": "smtp-stack",
+  "version": "0.1.0",
+  "description": "Configurable SMTP stack with async middleware",
+  "author": "Alex Pereverzyev",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "format": "prettier --write 'lib/**/*.js' 'test/**/*.js'",
+    "lint": "eslint . --ext .js --fix",
+    "test": "npm run coverage",
+    "coverage": "nyc mocha",
+    "debug": "DEBUG=* node lib/index.js",
+    "start": "node lib/index.js",
+    "stats": "sloc lib/ -f cli-table -k total,source,comment",
+    "hooks": "husky install"
+  },
+  "dependencies": {
+    "punycode": "^2.1.1"
+  },
+  "devDependencies": {
+    "chai": "4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-chai-friendly": "^0.7.1",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "husky": "^7.0.1",
+    "mocha": "8.4.0",
+    "node-forge": "^0.10.0",
+    "nodemailer": "^6.6.3",
+    "nyc": "^15.1.0",
+    "prettier": "^2.3.2",
+    "sinon": "^11.1.2",
+    "sloc": "^0.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexpereverzyev/smtp-stack"
+  },
+  "bugs": {
+    "url": "https://github.com/alexpereverzyev/smtp-stack/issues"
+  },
+  "keywords": [
+    "SMTP",
+    "middleware",
+    "proxy",
+    "TLS"
+  ]
 }
