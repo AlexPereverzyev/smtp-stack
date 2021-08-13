@@ -23,11 +23,14 @@ describe('Authentication', function () {
             allowInsecureAuth: true,
             key: cert.serviceKey,
             cert: cert.certificate,
-            onAuth(auth, session, callback) {
+            onAuth(session, callback) {
                 expect(session.tlsOptions).to.exist;
 
-                if (auth.method === 'XOAUTH2') {
-                    if (auth.username === 'testuser' && auth.accessToken === 'testtoken') {
+                if (session.auth.method === 'XOAUTH2') {
+                    if (
+                        session.auth.username === 'testuser' &&
+                        session.auth.accessToken === 'testtoken'
+                    ) {
                         callback(null, {
                             user: 'user',
                         });
@@ -44,10 +47,10 @@ describe('Authentication', function () {
                 }
 
                 if (
-                    auth.username === 'testuser' &&
-                    (auth.method === 'CRAM-MD5'
-                        ? auth.validate('testpassword')
-                        : auth.password === 'testpassword')
+                    session.auth.username === 'testuser' &&
+                    (session.auth.method === 'CRAM-MD5'
+                        ? session.auth.validate('testpassword')
+                        : session.auth.password === 'testpassword')
                 ) {
                     callback(null, {
                         user: 'user',

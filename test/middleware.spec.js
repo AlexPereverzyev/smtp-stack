@@ -18,14 +18,13 @@ describe('Middleware', function () {
     beforeEach(function (done) {
         server = new SmtpServer({
             allowInsecureAuth: true,
-            onAuth: function (_, __, callback) {
-                callback(null, { user: {} });
-            },
         });
 
-        server.use(async (_, next) => {
+        server.use(async (ctx, next) => {
             callBefore();
+
             await next();
+
             callAfter();
         });
 

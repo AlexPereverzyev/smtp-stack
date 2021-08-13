@@ -25,24 +25,24 @@ describe('Mail', function () {
             size: 1024,
         });
 
-        server.onAuth = function (creds, _, callback) {
-            if (creds.username === 'testuser' && creds.password === 'testpassword') {
+        server.onAuth = function (session, callback) {
+            if (session.auth.username === 'testuser' && session.auth.password === 'testpassword') {
                 callback(null, { user: 'user' });
             } else {
                 callback(null, { message: 'Authentication failed' });
             }
         };
 
-        server.onMailFrom = function (address, _, callback) {
-            if (address.address.startsWith('reject')) {
+        server.onMailFrom = function (session, callback) {
+            if (session.envelope.mailFrom.address.startsWith('reject')) {
                 callback(new Error('Not accepted'));
                 return;
             }
             callback();
         };
 
-        server.onRcptTo = function (address, _, callback) {
-            if (address.address.startsWith('reject')) {
+        server.onRcptTo = function (session, callback) {
+            if (session.envelope.lastTo.address.startsWith('reject')) {
                 callback(new Error('Not accepted'));
                 return;
             }

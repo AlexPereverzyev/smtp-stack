@@ -13,6 +13,8 @@ Configurable SMTP stack with async middleware:
 
 ## Usage
 
+Naive example:
+
 ```javascript
     const { SmtpServer } = require('smtp-stack'); 
 
@@ -20,15 +22,11 @@ Configurable SMTP stack with async middleware:
         socketTimeout: 1000,
         key: 'private-key-PEM',
         cert: 'public-certificate-PEM',
-        onAuth: function (_, __, callback) {
-            callback(null, { user: { name: 'guest' }});
-        },
     });
 
     server.use(async (ctx, next) => {            
         console.log('Before', ctx.commandName);
 
-        // naive example
         if (TooManyMails.has(ctx.session.remoteAddress)) {
             ctx.send(455, 'Please slow down');
         } else {
@@ -54,7 +52,7 @@ Configurable SMTP stack with async middleware:
 
 ### P1
 
-- add command selectors to middleware
+- add command selectors
 - add more tests
 - refine configuration
 - add docs and examples
