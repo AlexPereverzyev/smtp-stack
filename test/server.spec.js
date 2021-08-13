@@ -7,7 +7,7 @@ const SMTPClient = require('nodemailer/lib/smtp-connection');
 const test = require('./');
 const SmtpServer = require('../lib/server').SmtpServer;
 
-describe('SMTP Server', function () {
+describe('Server', function () {
     this.timeout(10 * 1000);
 
     let cert;
@@ -101,7 +101,7 @@ describe('SMTP Server', function () {
             });
         });
 
-        it('should close not ready connection when  command received', function (done) {
+        it('should close not ready connection when command received', function (done) {
             const connection = net.connect(test.PORT, test.HOST, function () {
                 const buffers = [];
 
