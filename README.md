@@ -52,7 +52,6 @@ Naive example:
 
 ### P1
 
-- add command selectors
 - add more tests
 - refine configuration
 - add docs and examples

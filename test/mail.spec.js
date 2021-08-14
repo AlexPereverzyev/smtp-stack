@@ -52,11 +52,11 @@ describe('Mail', function () {
         server.onData = function (session, callback) {
             const buffers = [];
 
-            session.dataStream.on('data', (chunk) => {
+            session.envelope.dataStream.on('data', (chunk) => {
                 buffers.push(chunk);
             });
 
-            session.dataStream.on('end', () => {
+            session.envelope.dataStream.on('end', () => {
                 const message = Buffer.concat(buffers).toString();
 
                 if (message.startsWith('reject')) {
@@ -64,7 +64,7 @@ describe('Mail', function () {
                     return;
                 }
 
-                if (session.dataStream.bytesExceeded) {
+                if (session.envelope.dataStream.bytesExceeded) {
                     const err = new Error('Maximum size exceeded');
                     err.code = 552;
                     callback(err);

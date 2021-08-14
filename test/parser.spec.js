@@ -41,7 +41,6 @@ describe('Parser', function () {
 
                 stream.on('end', function () {
                     expect(output).to.equal('TXT1\r\n.TXT2\r\n.TXT3\r\n');
-                    parser.startCommand();
                 });
             }
 
