@@ -14,13 +14,15 @@ Configurable SMTP stack with async middleware:
 ## Usage
 
 ```javascript
-    const { SmtpServer } = require('smtp-stack'); 
+    const { SmtpServer, LogLevels } = require('smtp-stack');
 
     const server = new SmtpServer({
         socketTimeout: 1000,
         noAuthReply: true, // handle final auth reply in middleware
         key: 'private-key-PEM',
         cert: 'public-certificate-PEM',
+        logLevel: LogLevels.info,
+        logBackend: console,
     });
 
     // handle AUTH command

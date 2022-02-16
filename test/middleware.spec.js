@@ -6,6 +6,7 @@ const SMTPClient = require('nodemailer/lib/smtp-connection');
 
 const test = require('./');
 const SmtpServer = require('../lib/server').SmtpServer;
+const { LogLevels } = require('../lib/logger');
 
 describe('Middleware', function () {
     this.timeout(10 * 1000);
@@ -18,6 +19,7 @@ describe('Middleware', function () {
     beforeEach(function (done) {
         server = new SmtpServer({
             allowInsecureAuth: true,
+            logLevel: LogLevels.none,
         });
 
         server.use(async (ctx, next) => {

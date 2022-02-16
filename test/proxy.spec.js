@@ -7,6 +7,7 @@ const SMTPClient = require('nodemailer/lib/smtp-connection');
 
 const test = require('./');
 const SmtpServer = require('../lib/server').SmtpServer;
+const { LogLevels } = require('../lib/logger');
 
 describe('Proxy', function () {
     this.timeout(10 * 1000);
@@ -32,6 +33,7 @@ describe('Proxy', function () {
                 useProxy: true,
                 key: cert.serviceKey,
                 cert: cert.certificate,
+                logLevel: LogLevels.none,
                 onConnect(session, callback) {
                     if (session.remoteAddress === '1.2.3.4') {
                         const err = new Error('blacklisted');
@@ -100,6 +102,7 @@ describe('Proxy', function () {
                 secure: true,
                 key: cert.serviceKey,
                 cert: cert.certificate,
+                logLevel: LogLevels.none,
             });
             server.start(test.PORT, test.HOST, done);
         });

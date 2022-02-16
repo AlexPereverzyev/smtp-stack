@@ -6,6 +6,7 @@ const SMTPClient = require('nodemailer/lib/smtp-connection');
 
 const test = require('./');
 const SmtpServer = require('../lib/server').SmtpServer;
+const { LogLevels } = require('../lib/logger');
 
 describe('Authentication', function () {
     this.timeout(10 * 1000);
@@ -23,6 +24,7 @@ describe('Authentication', function () {
             allowInsecureAuth: true,
             key: cert.serviceKey,
             cert: cert.certificate,
+            logLevel: LogLevels.none,
             onAuth(session, callback) {
                 expect(session.tlsOptions).to.exist;
 

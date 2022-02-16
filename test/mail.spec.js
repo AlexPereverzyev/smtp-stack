@@ -5,6 +5,7 @@ const SMTPClient = require('nodemailer/lib/smtp-connection');
 
 const test = require('./');
 const SmtpServer = require('../lib/server').SmtpServer;
+const { LogLevels } = require('../lib/logger');
 
 describe('Mail', function () {
     this.timeout(10 * 1000);
@@ -23,6 +24,7 @@ describe('Mail', function () {
             key: cert.serviceKey,
             cert: cert.certificate,
             size: 1024,
+            logLevel: LogLevels.none,
         });
 
         server.onAuth = function (session, callback) {

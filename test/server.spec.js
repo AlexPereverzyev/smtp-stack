@@ -6,6 +6,7 @@ const SMTPClient = require('nodemailer/lib/smtp-connection');
 
 const test = require('./');
 const SmtpServer = require('../lib/server').SmtpServer;
+const { LogLevels } = require('../lib/logger');
 
 describe('Server', function () {
     this.timeout(10 * 1000);
@@ -23,6 +24,7 @@ describe('Server', function () {
                 socketTimeout: 500,
                 key: cert.serviceKey,
                 cert: cert.certificate,
+                logLevel: LogLevels.none,
             });
             server.start(test.PORT, test.HOST, done);
         });
@@ -203,6 +205,7 @@ describe('Server', function () {
                 secure: true,
                 key: cert.serviceKey,
                 cert: cert.certificate,
+                logLevel: LogLevels.none,
             });
             server.start(test.PORT, test.HOST, done);
         });
@@ -237,6 +240,7 @@ describe('Server', function () {
                 socketTimeout: 1000,
                 key: cert.serviceKey,
                 cert: cert.certificate,
+                logLevel: LogLevels.none,
             });
             server.start(test.PORT, test.HOST, done);
         });
