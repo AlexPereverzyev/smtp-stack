@@ -93,12 +93,3 @@ Configurable SMTP stack with async middleware:
         console.log('SMTP server started');
     });
 ```
-
-## TODO
-
-### P1
-
-- add more tests
-- refine configuration
-- add docs and examples
-- packaging
