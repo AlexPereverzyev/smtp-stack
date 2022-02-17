@@ -1,6 +1,4 @@
-# Manual Tests
-
-## Test with ssmtp
+# Manual test with ssmtp
 
 Install [ssmtp](https://packages.ubuntu.com/search?keywords=ssmtp):
 
@@ -17,25 +15,25 @@ sudo nano /etc/ssmtp/ssmtp.conf
 ```
 root=postmaster
 mailhub=localhost:2525
-rewriteDomain=localhost.my
-hostname=localhost.my
+rewriteDomain=mail.example.com
+hostname=mail.example.com
 FromLineOverride=YES
 UseTLS=NO
-AuthUser=username
-AuthPass=password
+AuthUser=user
+AuthPass=pass
 Debug=YES
 ```
 
 From command line run:
 
 ```
-ssmtp receiver@localhost.my
+ssmtp receiver@mail.example.com
 ```
 Then enter (there is whitespace between subject and body):
 
 ```
-To: receiver@localhost.my
-From: sender@localhost.my
+To: receiver@mail.example.com
+From: sender@mail.example.com
 Subject: Test
  
 This is just a test.
@@ -45,4 +43,4 @@ Press `Ctrl+D` to send the message.
 
 Observe `smtp-stack` server logs.
 
-Note, idle connections are closed in 30 sec by default.
+Note, by default idle connections are closed after 30 sec.

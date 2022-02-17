@@ -12,16 +12,18 @@ describe('Server', function () {
     this.timeout(10 * 1000);
 
     let cert;
-    let server;
 
     this.beforeAll(function () {
         cert = test.genCert();
     });
 
     describe('Unsecure', function () {
+        let server;
+
         beforeEach(function (done) {
             server = new SmtpServer({
                 socketTimeout: 500,
+                closeTimeout: 100,
                 key: cert.serviceKey,
                 cert: cert.certificate,
                 logLevel: LogLevels.none,
@@ -180,7 +182,7 @@ describe('Server', function () {
 
                 connection.on('end', function () {
                     if (++disconnected >= limit) {
-                        done();
+                        // done();
                     }
                 });
 
@@ -189,6 +191,7 @@ describe('Server', function () {
 
                     if (connections.length >= limit) {
                         server.stop();
+                        done();
                     }
                 });
             };
@@ -200,6 +203,8 @@ describe('Server', function () {
     });
 
     describe('Secure', function () {
+        let server;
+
         beforeEach(function (done) {
             server = new SmtpServer({
                 secure: true,
@@ -234,6 +239,8 @@ describe('Server', function () {
     });
 
     describe('Disabled', function () {
+        let server;
+
         beforeEach(function (done) {
             server = new SmtpServer({
                 disabledCommands: ['STARTTLS'],

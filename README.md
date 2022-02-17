@@ -17,7 +17,7 @@ Configurable SMTP stack with async middleware:
     const { SmtpServer, LogLevels } = require('smtp-stack');
 
     const server = new SmtpServer({
-        name: 'localhost.my',
+        name: 'mail.example.com',
         socketTimeout: 1000,
         noAuthReply: true, // handle final auth reply in middleware
         secure: false, // TLS or not
