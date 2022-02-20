@@ -42,5 +42,3 @@ This is just a test.
 Press `Ctrl+D` to send the message.
 
 Observe `smtp-stack` server logs.
-
-Note, by default idle connections are closed after 30 sec.
