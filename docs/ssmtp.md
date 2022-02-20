@@ -1,4 +1,4 @@
-# Manual test with ssmtp
+# Testing with ssmtp
 
 Install [ssmtp](https://packages.ubuntu.com/search?keywords=ssmtp):
 
@@ -18,7 +18,7 @@ mailhub=localhost:2525
 rewriteDomain=mail.example.com
 hostname=mail.example.com
 FromLineOverride=YES
-UseTLS=NO
+UseTLS=YES
 AuthUser=user
 AuthPass=pass
 Debug=YES

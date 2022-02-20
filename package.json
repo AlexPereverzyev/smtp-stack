@@ -1,7 +1,7 @@
 {
   "name": "smtp-stack",
   "version": "0.1.0",
-  "description": "Configurable SMTP stack with async middleware",
+  "description": "Configurable SMTP stack and server with async middleware",
   "author": "Alex Pereverzyev",
   "license": "MIT",
   "main": "index.js",
